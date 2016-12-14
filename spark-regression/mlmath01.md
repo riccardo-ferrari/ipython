@@ -474,7 +474,26 @@ $$
 
 It follows from the matrix multiplication that $\beta_0$ is the value we will predict for $\hat{y_i}$ when all of the $x_{i,j}$ values are 0. In this specific example, it is the value we will predict as the price of a house when it is not a waterfront property.
 
+Now using one housing feature (waterfront or not waterfront), we have expanded our regression model to produce variable results.
+
+This is a slight improvement to the previous baseline model that will always guess the same value (the output is always the mean,\$540,088 USD).
+It will now output two values when guessing housing price, based on whether the house is on the waterfront of not.
+
+Guess for a non-waterfront house: 
+
+$$
+y_i = \widehat{\beta_0} + \widehat{\epsilon_i}
+$$
+
+Guess for a waterfront house: 
+$$
+y_i = \widehat{\beta_0} + \widehat{\beta_1} x_{i,1} + \widehat{\epsilon_i}
+$$
+
 So what does this model actually say? It says that if a house is not a waterfront property, the model predicts that it will be \$531,563 USD, and if it is a waterfront property, the model predicts that it will be worth an additional \$1,130,312.
+
+However, our regression is not that helpful because there many other features that could add or detract from a house's value.
+This leads into the assessment of the model. 
 
 Next, we evaluate the model's performance compared to the baseline model.
 
@@ -526,9 +545,12 @@ More explicitly, if we choose some $\delta_k$ to use as our increment, every tim
 
 ## Linear Regression, Take 2
 
+Let's go ahead and expand our basic linear regression model to include $n$ variables (other variables could be features such as bedrooms, bathrooms, sqft_living, sqft_lot, floors, condition, yr_built, yr_renovated, zipcode, etc).
+
 $$
 y_i = \widehat{\beta_0} + \widehat{\beta_1} x_1 + \dotsb + \widehat{\beta_n} x_n + \widehat{\epsilon_i}
 $$
+Starting off with some factors that we instictively know add and dectract value, let's first consider the square footage, bedrooms, and bathrooms.
 
 ## Really Wrong Answers
 
